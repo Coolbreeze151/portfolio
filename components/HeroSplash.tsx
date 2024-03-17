@@ -28,7 +28,7 @@ export default function HeroSplash(props: Props): React.ReactElement {
                         </span>
                         <br />
                         <span className="text-3xl md:text-2xl">
-                            <b>(DE)</b> Do Everything Engineer 😆
+                            A Do Everything Engineer 😆
                         </span>
                     </h1>
 
