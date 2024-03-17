@@ -89,7 +89,7 @@ export const userData = {
     },
     {
       title: 'Risk Assurance Intern',
-      company: 'National University of Singapore',
+      company: 'PriceWaterhouseCoopers (PWC) Singapore',
       year: '2019',
       desc: 'Part of the Risk Technology Assurance and Third Party Trust Practice that provides audit and consulting services on IT and business controls, compliance and practices for local and overseas firms.',
     },
