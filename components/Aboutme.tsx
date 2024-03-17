@@ -10,7 +10,7 @@ export default function AboutMe(props: any): React.ReactElement {
                         About Me
                     </h1>
 
-                    <h2 className="mt-10 font-bold text-gray-500">
+                    <h2 className="mt-10 font-bold text-black-500">
                         Hello! I reside in ap-southeast-1. I hold an Undergrad Degree in Information Systems (Digital Innovation) and Masters in Computer Science.
 
                         I enjoy learning new things and travelling to new places.
@@ -20,7 +20,7 @@ export default function AboutMe(props: any): React.ReactElement {
                         Skills
                     </h1>
 
-                    <h2 className="mt-5 mb-5 font-bold text-gray-500">
+                    <h2 className="mt-5 mb-5 font-bold text-black-500">
                         These are the languages that I code in:
                     </h2>
 
@@ -32,7 +32,7 @@ export default function AboutMe(props: any): React.ReactElement {
                         <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" />
                     </div>
 
-                    <h2 className="mt-5 mb-5 font-bold text-gray-500">
+                    <h2 className="mt-5 mb-5 font-bold text-black-500">
                         These are the tools / frameworks / libraries that I am most familiar with:
                     </h2>
 
@@ -57,7 +57,7 @@ export default function AboutMe(props: any): React.ReactElement {
                         <img alt="Many More" src="https://img.shields.io/badge/...-And%20More-yellowgreen?style=for-the-badge&logo=GitHub-Sponsors" />
                     </div>
 
-                    <h2 className="mt-5 font-bold text-gray-500">
+                    <h2 className="mt-5 font-bold text-black-500">
                         As a cloud enthusiast I primarily use 
                     </h2>
 
@@ -66,7 +66,7 @@ export default function AboutMe(props: any): React.ReactElement {
                         <img alt="azure" src="https://img.shields.io/badge/AZURE-%233B87D0.svg?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
                     </div>
 
-                    <h2 className="mt-5 font-bold text-gray-500">
+                    <h2 className="mt-5 font-bold text-black-500">
                         coupled with these IaC technologies:
                     </h2>
 
