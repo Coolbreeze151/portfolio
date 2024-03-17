@@ -76,7 +76,7 @@ export const userData = {
       desc: 'Graduated with a Masters degree in Computer Science.',
     },
     {
-      title: 'Co-Founder',
+      title: 'Risk Assurance Associate',
       company: 'PriceWaterhouseCoopers (PWC) Singapore',
       year: '2019-2020',
       desc: 'Part of the Risk Technology Assurance and Third Party Trust Practice that provides audit and consulting services on IT and business controls, compliance and practices for local and overseas firms.',
@@ -86,6 +86,12 @@ export const userData = {
       company: 'National University of Singapore',
       year: '2019',
       desc: 'Graduated with an Undergraduate Degree in Informations Systems with a Specialization in Digital Innovation.',
+    },
+    {
+      title: 'Risk Assurance Intern',
+      company: 'National University of Singapore',
+      year: '2019',
+      desc: 'Part of the Risk Technology Assurance and Third Party Trust Practice that provides audit and consulting services on IT and business controls, compliance and practices for local and overseas firms.',
     },
     {
       title: 'Product Development Intern',
