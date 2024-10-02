@@ -14,7 +14,6 @@ interface projectDetails {
     desc: string
 }
 
-
 const Projects: NextPage = () => {
     return (
         <Layout title="Projects" description={`${title} - ${subtitle}`}>
@@ -22,9 +21,8 @@ const Projects: NextPage = () => {
                 <div className="w-full md:w-1/2 mx-auto text-center md:text-left lg:p-20">
                     <h1 className="font-body font-bold text-[60px]">Media / Portfolio</h1>
                 </div>
-
             </div>
-            <div className="max-w-md md:max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
+            <div className="max-w-md md:max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-10">
                 {userData.projects.map((proj, idx) => (
                     <ProjectCard
                         key={idx}
@@ -42,12 +40,11 @@ const Projects: NextPage = () => {
 
 const ProjectCard = ({ title, link, image, desc, tech }: projectDetails) => {
     return (
-        <a target="_blank" href={link} className="daisyui-card w-full shadow-xl relative overflow-hidden hover:scale-110 transition duration-2000 ease-out h-full">
-            <figure><img className="max-w-[500px] h-[300px]" src={image} alt="projectPics" /></figure>
+        <a target="_blank" href={link} className="daisyui-card w-full shadow-xl relative overflow-hidden hover:scale-105 transition duration-500 ease-out h-full">
+            <figure><img className="max-w-full h-[300px]" src={image} alt="projectPics" /></figure>
             <div className="daisyui-card-body dark:bg-gray-800">
                 <h2 className="daisyui-card-title">
                     {title}
-                    {/* <div className="daisyui-badge daisyui-badge-secondary">NEW</div> */}
                 </h2>
                 <p>{desc}</p>
                 <div className="daisyui-card-actions justify-end">

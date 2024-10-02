@@ -4,12 +4,14 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { userData } from "../constants/user";
 import { motion } from 'framer-motion';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 export default function Navbar(): React.ReactElement {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [onHoverTheme, setOnHoverTheme] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const links: { name: string; href: string }[] = [
     { name: 'Home', href: '/' },
@@ -40,7 +42,16 @@ export default function Navbar(): React.ReactElement {
           </div>
         </Link>
 
-        <nav className="flex flex-col md:flex-row items-center mt-4 md:mt-0">
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 focus:outline-none focus:text-gray-700 dark:focus:text-gray-400"
+          >
+            {isOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+          </button>
+        </div>
+
+        <nav className={`flex-col md:flex-row items-center mt-4 md:mt-0 ${isOpen ? 'flex' : 'hidden'} md:flex`}>
           {links.map(({ name, href }) => (
             <Link href={href} key={name}>
               <div className="mr-6 sm:mr-8 flex flex-col relative">
