@@ -37,7 +37,7 @@ export const userData = {
       title: 'TagUI RPA to Automate Daily Activities',
       desc: 'Using RPA to automate some day to day processes (eg. Compare Airline Prices, Analyse Stock Prices).',
       link: 'https://github.com/Coolbreeze151/RPA-with-TagUI',
-      image:'https://github.com/Coolbreeze151/RPA-with-TagUI/raw/master/stock.gif',
+      image:'https://github.com/Coolbreeze151/RPA-with-TagUI/raw/master/rpa-tagui/stock.gif',
       tech: ['Python', 'TagUI', 'Jupyternotebook'],
     },
     {
