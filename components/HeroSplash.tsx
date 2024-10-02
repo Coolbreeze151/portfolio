@@ -10,10 +10,7 @@ export default function HeroSplash(props: Props): React.ReactElement {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center overflow-hidden h-screen pt-24"> {/* Added padding-top */}
-                <div className="w-full flex justify-center mt-12"> {/* Adjusted margin-top */}
-                    <img className="animate-slowBounce rounded-full w-32 h-32 md:w-48 md:h-48" src="/profilepic.jpg" alt="avatar" />
-                </div>
+            <div className="flex flex-row justify-center items-start overflow-hidden h-screen">
                 <div className="w-full md:w-1/2 mx-auto text-center md:text-left lg:p-20">
                     <h1 className="mb-2 font-mono text-4xl text-black-100 md:text-6xl">
                         Hi, I&apos;m <br className="block md:hidden" />
@@ -75,13 +72,13 @@ export default function HeroSplash(props: Props): React.ReactElement {
                         </a>
                     </div>
 
-                    <div className='cursor-pointer w-full grid place-items-center mt-24' onClick={() => props.scrollToSection("aboutme")}>
-                        <div className={styles.chevron}></div>
-                        <div className={styles.chevron}></div>
-                        <div className={styles.chevron}></div>
-                        {/* <span className="absolute md:text-base text-gray-500 text-sm flex-row">
-                            Click to scroll down
-                        </span> */}
+                    <div className='w-full grid place-items-center mt-12' onClick={() => props.scrollToSection("aboutme")}>
+                        {/* Add content or button here if needed */}
+                    </div>
+                </div>
+                <div className="hidden lg:block relative w-full md:w-2/5 -mr-35 mt-14 pr-1">
+                    <div className="w-3/4">
+                        <img className="animate-slowBounce rounded-full hover:" src="/profilepic.jpg" alt="avatar" />
                     </div>
                 </div>
             </div>

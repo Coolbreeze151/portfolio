@@ -5,8 +5,8 @@ export default function AboutMe(props: any): React.ReactElement {
     return (
         <div id="aboutme" className="">
             <div className="flex flex-row justify-center items-start">
-                <div className="w-9/12 mx-auto text-left lg:p-20">
-                    <h1 className="mb-2 text-4xl text-black-100">
+                <div className="w-9/12 mx-auto text-left lg:p-40">
+                    <h1 className="text-4xl text-black-100">
                         About Me
                     </h1>
 
