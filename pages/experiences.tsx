@@ -18,7 +18,7 @@ const Experiences: NextPage = () => {
         <Layout title="Experiences" description={`${title} - ${subtitle}`}>
             <div className="flex flex-col items-center overflow-hidden">
                 <div className="w-full md:w-2/3 lg:w-1/2 mx-auto text-center lg:p-20">
-                    <p className="font-body font-bold text-4xl md:text-5xl lg:text-6xl">Experiences</p>
+                    <p className="font-body font-bold text-4xl md:text-5xl lg:text-6xl animate-fade-in">Experiences</p>
                 </div>
             </div>
             <div className="grid grid-cols-1 gap-6 max-w-xl mx-auto pt-5 mb-10">
@@ -47,7 +47,7 @@ const Experiences: NextPage = () => {
 
 const ExperienceCard = ({ title, desc, year, company }: ExpDetails): ReactElement => {
     return (
-        <div className="relative experience-card border p-4 rounded-md shadow-xl bg-white dark:bg-gray-800 z-10 mx-4 border-green-500">
+        <div className="relative experience-card border p-4 rounded-md shadow-xl bg-white dark:bg-gray-800 z-10 mx-4 border-green-500 transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="flex justify-between items-center mb-2">
                 <h1 className="font-semibold text-xl">{title}</h1>
                 <span className="text-gray-500">{year}</span>

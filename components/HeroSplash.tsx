@@ -84,8 +84,8 @@ export default function HeroSplash(props: Props): React.ReactElement {
 
 
                 </div>
-                <div className="hidden lg:block relative w-full md:w-2/5 -mr-35 mt-14 pr-1">
-                    <div className="w-3/4">
+                <div className="relative w-full md:w-2/5 -mr-35 mt-14 pr-1">
+                    <div className="w-3/4 mx-auto">
                         <img className="animate-slowBounce rounded-full hover:" src="/profilepic.jpg" alt="avatar" />
                     </div>
                 </div>
