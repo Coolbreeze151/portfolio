@@ -6,6 +6,13 @@ export const userData = {
   formBold: 'https://formbold.com/s/3ZdJ6',
   projects: [
     {
+      title: 'MLOps for Ministry of Manpower',
+      desc: 'Productionising LLMs and ML Models with Analytics.gov: MOM’s Journey into AI Solution Deployment',
+      link: 'https://medium.com/dsaid-govtech/productionising-llms-and-ml-models-with-analytics-gov-moms-journey-into-ai-solution-deployment-bad4ceb12df2',
+      image:'/maestro.png',
+      tech: ['Sagemaker', 'Docker', 'Terraform', 'Serverless', 'Networking'],
+    },
+    {
       title: 'Analytics.gov',
       desc: 'Analytics.gov – Enabling Data Exploitation for Whole-of-Government (WOG)',
       link: 'https://www.developer.tech.gov.sg/products/categories/analytics/analytics-gov/overview',
@@ -59,7 +66,13 @@ export const userData = {
   ],
   experience: [
     {
-      title: 'Data Engineer',
+      title: 'Data Engineer (II)',
+      company: 'GovTech',
+      year: '2024-Present',
+      desc: 'Currently working in the Data Engineering Practice. As a Data Engineer, my role is to explore new technologies, develop data engineering best practices and capabilities for Whole-Of-Government (WOG).',
+    },
+    {
+      title: 'Data Engineer (I)',
       company: 'GovTech',
       year: '2021-2024',
       desc: 'Currently working in the Data Science and AI Division with the latest cutting edge technologies and tools. As a Data Engineer, my role is to build and develop the data infrastructure and data engineering capabilities of Whole-Of-Government (WOG).',

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { userData } from "../constants/user";
 import { NextPage } from "next";
 import Layout from "../components/Layout";
@@ -10,11 +10,25 @@ interface IFormInput {
     email: string;
     msg: string;
 }
-const title = `${userData.name}`;
-const subtitle = "Contact"
 
+const title = `${userData.name}`;
+const subtitle = "Contact";
+
+const Modal: React.FC<{ onClose: () => void }> = ({ onClose }) => (
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+        <div className="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full">
+            <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Thank You!</h2>
+            <p className="mb-6 text-center text-gray-600">Thanks for your message! I'll get back to you whenever I can 😀</p>
+            <p className="mb-6 text-center text-gray-600">Meanwhile, feel free to reach me through <a href="https://www.linkedin.com/in/ismahfaris-ismail/" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">LinkedIn</a>.</p>
+            <div className="flex justify-center">
+                <button onClick={onClose} className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-300">Close</button>
+            </div>
+        </div>
+    </div>
+);
 
 const Contact: NextPage = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     async function postFormBold(data: IFormInput): Promise<any> {
         const requestOptions = {
@@ -33,14 +47,15 @@ const Contact: NextPage = () => {
     } = useForm<IFormInput>();
 
     const onSubmit: SubmitHandler<IFormInput> = async data => {
-        console.log(data)
+        console.log(data);
         return toast.promise(postFormBold(data), {
             loading: "Loading",
             success: (data) => {
-                return "Thanks for your message! I'll get back to you whenever I can 😀"
+                setIsModalOpen(true);
+                return "Message Received! ✅";
             },
             error: "Ooops! Something went wrong 😭"
-        })
+        });
     }
 
     return (
@@ -100,6 +115,7 @@ const Contact: NextPage = () => {
                     </div>
                 </form>
             </div>
+            {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
         </Layout>
     );
 }

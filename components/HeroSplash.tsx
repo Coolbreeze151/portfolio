@@ -11,9 +11,9 @@ export default function HeroSplash(props: Props): React.ReactElement {
 
     return (
         <>
-            <div className="flex flex-row justify-center items-start overflow-hidden h-screen">
+            <div className="mt-12 flex flex-row justify-center items-start h-screen">
                 <div className="w-full md:w-1/2 mx-auto text-center md:text-left lg:p-20">
-                    <h1 className="mb-2 font-mono text-2xl text-black-100 md:text-6xl">
+                    <h1 className="mb-2 font-mono text-4xl text-black-100 md:text-6xl">
                         Hi, I&apos;m <br className="block md:hidden" />
                         <span className="relative">
                             <span className="h-20 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent">
@@ -35,7 +35,7 @@ export default function HeroSplash(props: Props): React.ReactElement {
                             wrapper="span"
                             cursor={true}
                             repeat={Infinity}
-                            className="text-xl md:text-3xl text-green-500"
+                            className="text-2xl md:text-3xl text-green-500"
                         />
                         <br/>
                             <span className="text-2xl h-24 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent text-green-500">
@@ -85,16 +85,9 @@ export default function HeroSplash(props: Props): React.ReactElement {
                             href={userData.medium}
                             className="text-base font-normal text-gray-600 dark:text-gray-300"
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                className="bi bi-medium h-5 w-5"
-                                viewBox="0 0 16 16"
-                            >
-                                <path d="M4.5 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM0 8a4.5 4.5 0 1 1 9 0A4.5 4.5 0 0 1 0 8zm12.5-4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM8 8a4.5 4.5 0 1 1 9 0A4.5 4.5 0 0 1 8 8zm4.5 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM8 12.5a4.5 4.5 0 1 1 9 0A4.5 4.5 0 0 1 8 12.5z" />
-                            </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-medium" viewBox="0 0 16 16">
+                        <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8m4.95 0c0 2.34-1.01 4.236-2.256 4.236S9.463 10.339 9.463 8c0-2.34 1.01-4.236 2.256-4.236S13.975 5.661 13.975 8M16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795"/>
+                        </svg>
                         </a>
                     </div>
 
@@ -106,6 +99,15 @@ export default function HeroSplash(props: Props): React.ReactElement {
                     <div className="w-3/4">
                         <img className="animate-slowBounce rounded-full hover:" src="/profilepic.jpg" alt="avatar" />
                     </div>
+                </div>
+            </div>
+
+            {/* Bouncing Arrow Animation */}
+            <div className="absolute bottom-4 w-full flex justify-center space-x-4">
+                <div className="animate-bounce cursor-pointer" onClick={() => props.scrollToSection("aboutme")}>
+                    <svg className="w-24 h-24 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </div>
             </div>
         </>
