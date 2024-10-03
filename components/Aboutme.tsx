@@ -11,9 +11,7 @@ export default function AboutMe(props: any): React.ReactElement {
                     </h1>
 
                     <h2 className="mt-10 font-bold text-black-500">
-                        Hello! I reside in ap-southeast-1. I hold an Undergrad Degree in Information Systems (Digital Innovation) and Masters in Computer Science.
-                        I build to impact public good and solve real-world problems. I am currently working as a Data Engineer in GovTech.
-                        I enjoy learning new things and travelling to new places.
+                    I live in ap-southeast-1 and hold degrees in Information Systems and Computer Science. As a Data Engineer at GovTech, I focus on building solutions for public good and real-world challenges. I enjoy learning and exploring new places.
                     </h2>
 
                     <h1 className="mt-10 text-3xl text-black-100">
@@ -41,7 +39,7 @@ export default function AboutMe(props: any): React.ReactElement {
                         <img alt="AWS Backup" src="https://img.shields.io/badge/AWS%20Backup-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
                         <img alt="AWS Glue" src="https://img.shields.io/badge/AWS%20Glue-%234285F4.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
                         <img alt="Calico" src="https://img.shields.io/badge/Calico-%23F68D2E.svg?style=for-the-badge&logo=calico&logoColor=white" />
-                        <img alt="Cloudtrail" src="https://img.shields.io/badge/Cloudtrail-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+                        <img alt="Cloudtrail" src="https://img.shields.io/badge/Cloudtrail-%23FF6600.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
                         <img alt="Cloudwatch" src="https://img.shields.io/badge/Cloudwatch-%23232F3E.svg?style=for-the-badge&logo=amazon-cloudwatch&logoColor=white" />
                         <img alt="CodeCommit" src="https://img.shields.io/badge/CodeCommit-%234285F4.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
                         <img alt="CodePipeline" src="https://img.shields.io/badge/CodePipeline-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
@@ -50,7 +48,7 @@ export default function AboutMe(props: any): React.ReactElement {
                         <img alt="DynamoDB" src="https://img.shields.io/badge/Amazon%20DynamoDB-%2300A3E4.svg?style=for-the-badge&logo=amazon-dynamodb&logoColor=white" />
                         <img alt="ECS" src="https://img.shields.io/badge/Amazon%20ECS-%23FF9900.svg?style=for-the-badge&logo=amazon-ecs&logoColor=white" />
                         <img alt="EKS" src="https://img.shields.io/badge/Amazon%20EKS-%23232F3E.svg?style=for-the-badge&logo=amazon-eks&logoColor=white" />
-                        <img alt="EventBridge" src="https://img.shields.io/badge/EventBridge-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+                        <img alt="EventBridge" src="https://img.shields.io/badge/EventBridge-%23FF6600.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
                         <img alt="Fluentbit" src="https://img.shields.io/badge/fluentbit-%230E8A8A.svg?style=for-the-badge&logo=fluentbit&logoColor=white" />
                         <img alt="GitHub" src="https://img.shields.io/badge/github-%23181717.svg?style=for-the-badge&logo=github&logoColor=white" />
                         <img alt="GitLab" src="https://img.shields.io/badge/gitlab-%23FC6D26.svg?style=for-the-badge&logo=gitlab&logoColor=white" />
