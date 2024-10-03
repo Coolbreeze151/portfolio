@@ -47,3 +47,20 @@
     transform: translateY(10rem) scale(0.5);
   }
 }
+
+@keyframes alternateText {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.1%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-type-alternate:nth-child(1) {
+  animation: alternateText 4s infinite;
+}
+
+.animate-type-alternate:nth-child(2) {
+  animation: alternateText 4s infinite 2s; /* Delay for alternating */
+}

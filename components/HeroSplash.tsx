@@ -1,6 +1,7 @@
 import React from 'react';
 import { userData } from "../constants/user";
 import styles from "./HeroSplash.module.css";
+import { TypeAnimation } from 'react-type-animation';
 
 interface Props {
     scrollToSection: (id: string) => void;
@@ -12,27 +13,37 @@ export default function HeroSplash(props: Props): React.ReactElement {
         <>
             <div className="flex flex-row justify-center items-start overflow-hidden h-screen">
                 <div className="w-full md:w-1/2 mx-auto text-center md:text-left lg:p-20">
-                    <h1 className="mb-2 font-mono text-4xl text-black-100 md:text-6xl">
+                    <h1 className="mb-2 font-mono text-2xl text-black-100 md:text-6xl">
                         Hi, I&apos;m <br className="block md:hidden" />
                         <span className="relative">
-                            <span className="h-20 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent text-green-500">
-                                Ismahfaris<span className="text-3xl md:text-5xl">🪄</span>
+                            <span className="h-20 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent">
+                                Ismahfaris<span className="md:text-5xl">🪄</span>
                             </span>
-                            <span
-                                className={`cursor absolute -bottom-0 left-0 -top-0 inline-block bg-white w-full animate-type will-change dark:bg-[#121212]`}
-                            ></span>
                         </span>
                         <br />
-                        <span className="">
-                            A Data Engineer
-                        </span>
-                        <br />
-                        <span className="text-3xl md:text-2xl">
-                            A Do Everything Engineer 😆
-                        </span>
+                        <TypeAnimation
+                            sequence={[
+                                'Data Engineer',
+                                2000, // Waits 2s
+                                'AI Engineer',
+                                2000, // Waits 2s
+                                'Platform Engineer',
+                                2000, // Waits 2s
+                                'Do Everything Engineer',
+                                2000, // Waits 2s
+                            ]}
+                            wrapper="span"
+                            cursor={true}
+                            repeat={Infinity}
+                            className="text-xl md:text-3xl text-green-500"
+                        />
+                        <br/>
+                            <span className="text-2xl h-24 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent text-green-500">
+                            👨🏼‍🌾 🚜 🌾<span className="text-3xl md:text-5xl"></span>
+                            </span>
                     </h1>
 
-                    <h2 className="mt-10 font-bold text-lg text-gray-500 md:text-xl">
+                    <h2 className="mt-10 font-bold text-lg text-gray-400 md:text-xl">
                         I build things for &nbsp;
                         <span className="before:block before:absolute before:-inset-0.5 before:-skew-y-3 before:bg-green-500 relative inline-block">
                             <span className="relative text-white">public good</span>
@@ -68,6 +79,21 @@ export default function HeroSplash(props: Props): React.ReactElement {
                                 viewBox="0 0 16 16"
                             >
                                 <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                            </svg>
+                        </a>
+                        <a
+                            href={userData.medium}
+                            className="text-base font-normal text-gray-600 dark:text-gray-300"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-medium h-5 w-5"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="M4.5 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM0 8a4.5 4.5 0 1 1 9 0A4.5 4.5 0 0 1 0 8zm12.5-4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM8 8a4.5 4.5 0 1 1 9 0A4.5 4.5 0 0 1 8 8zm4.5 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM8 12.5a4.5 4.5 0 1 1 9 0A4.5 4.5 0 0 1 8 12.5z" />
                             </svg>
                         </a>
                     </div>

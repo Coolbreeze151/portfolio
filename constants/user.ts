@@ -2,6 +2,7 @@ export const userData = {
   name: 'Ismahfaris',
   linkedin: 'https://www.linkedin.com/in/ismahfaris-ismail/',
   github: 'https://github.com/Coolbreeze151',
+  medium: 'https://medium.com/@ismahfaris',
   formBold: 'https://formbold.com/s/3ZdJ6',
   projects: [
     {
