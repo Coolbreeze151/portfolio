@@ -84,9 +84,9 @@ export default function AboutMe(props: any): React.ReactElement {
                     </h2>
 
                     <div className="flex flex-wrap gap-1">
-                        <img alt="aws" src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
-                        <img alt="azure" src="https://img.shields.io/badge/AZURE-%233B87D0.svg?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
-                        <img alt="gcp" src="https://img.shields.io/badge/GCP-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white" />
+                        <img alt="AWS" src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+                        <img alt="Azure" src="https://img.shields.io/badge/Microsoft%20Azure-%230072C6.svg?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
+                        <img alt="GCP" src="https://img.shields.io/badge/GCP-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white" />
                     </div>
 
                     <h2 className="mt-5 font-bold text-black-500">
@@ -95,8 +95,7 @@ export default function AboutMe(props: any): React.ReactElement {
 
                     <div className="flex flex-wrap gap-1">
                         <img alt="terraform" src="https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white" />
-                        <img alt="serverless" src="https://img.shields.io/badge/sls-Serverless-brightgreen" />
-
+                        <img alt="serverless" src="https://img.shields.io/badge/serverless-%23FD5750.svg?style=for-the-badge&logo=serverless&logoColor=white" />
                     </div>
 
                 </div>
