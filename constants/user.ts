@@ -67,15 +67,15 @@ export const userData = {
   experience: [
     {
       title: 'Data Engineer (II)',
-      company: 'GovTech',
+      company: 'GovTech, Data Engineering Practice',
       year: '2024-Present',
-      desc: 'Currently working in the Data Engineering Practice. As a Data Engineer, my role is to explore new technologies, develop data engineering best practices and capabilities for Whole-Of-Government (WOG).',
+      desc: 'Currently involved in exploring new technologies, developing data engineering best practices and capabilities for Whole-Of-Government (WOG).',
     },
     {
       title: 'Data Engineer (I)',
-      company: 'GovTech',
+      company: 'GovTech, Data Science and AI Division',
       year: '2021-2024',
-      desc: 'Currently working in the Data Science and AI Division with the latest cutting edge technologies and tools. As a Data Engineer, my role is to build and develop the data infrastructure and data engineering capabilities of Whole-Of-Government (WOG).',
+      desc: 'I worked on building and advancing data infrastructure and engineering capabilities across the Whole-of-Government (WOG), leveraging cutting-edge technologies and tools.',
     },
     {
       title: 'Research Assistant',

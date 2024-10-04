@@ -8,7 +8,6 @@ interface Props {
 }
 
 export default function HeroSplash(props: Props): React.ReactElement {
-
     return (
         <>
             <div className="mt-12 flex flex-row justify-center items-start h-screen">
@@ -37,10 +36,10 @@ export default function HeroSplash(props: Props): React.ReactElement {
                             repeat={Infinity}
                             className="text-2xl md:text-3xl text-green-500"
                         />
-                        <br/>
-                            <span className="text-2xl h-24 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent text-green-500">
+                        <br />
+                        <span className="text-2xl h-24 pt-2 overflow-x-hidden whitespace-nowrap text-brand-accent text-green-500">
                             👨🏼‍🌾 🚜 🌾<span className="text-3xl md:text-5xl"></span>
-                            </span>
+                        </span>
                     </h1>
 
                     <h2 className="mt-10 font-bold text-lg text-gray-400 md:text-xl">
@@ -85,9 +84,16 @@ export default function HeroSplash(props: Props): React.ReactElement {
                             href={userData.medium}
                             className="text-base font-normal text-gray-600 dark:text-gray-300"
                         >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-medium" viewBox="0 0 16 16">
-                        <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8m4.95 0c0 2.34-1.01 4.236-2.256 4.236S9.463 10.339 9.463 8c0-2.34 1.01-4.236 2.256-4.236S13.975 5.661 13.975 8M16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795"/>
-                        </svg>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-medium"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8m4.95 0c0 2.34-1.01 4.236-2.256 4.236S9.463 10.339 9.463 8c0-2.34 1.01-4.236 2.256-4.236S13.975 5.661 13.975 8M16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795" />
+                            </svg>
                         </a>
                     </div>
 
