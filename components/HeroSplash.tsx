@@ -44,8 +44,13 @@ export default function HeroSplash(props: Props): React.ReactElement {
 
                     <h2 className="mt-10 font-bold text-lg text-gray-400 md:text-xl">
                         I build things for &nbsp;
-                        <span className="before:block before:absolute before:-inset-0.5 before:-skew-y-3 before:bg-green-500 relative inline-block">
-                            <span className="relative text-white">public good</span>
+                        <span className="relative inline-block">
+                            <span className="before:block before:absolute before:-inset-0.5 before:-skew-y-3 before:bg-green-500 relative inline-block">
+                                <span className="relative text-purple-400">public good</span>
+                            </span>
+                            <span className="absolute inset-0 flex items-center justify-center">
+                                <span className="animate-pulse text-purple-800">public good</span>
+                            </span>
                         </span>
                     </h2>
 
