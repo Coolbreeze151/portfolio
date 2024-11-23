@@ -6,6 +6,13 @@ export const userData = {
   formBold: 'https://formbold.com/s/3ZdJ6',
   projects: [
     {
+      title: 'PLoS One Medical Journal Publication',
+      desc: 'Feasibility, reliability and validity of self-measurement of knee range-of-motion using an accelerometer-based smartphone application by patients with total knee arthroplasty',
+      link: 'https://pubmed.ncbi.nlm.nih.gov/39361563/',
+      image:'/plosone.png',
+      tech: ['React Native', 'FormSG', 'Javascript'],
+    },
+    {
       title: 'MLOps for Ministry of Manpower',
       desc: 'Productionising LLMs and ML Models with Analytics.gov: MOM’s Journey into AI Solution Deployment',
       link: 'https://medium.com/dsaid-govtech/productionising-llms-and-ml-models-with-analytics-gov-moms-journey-into-ai-solution-deployment-bad4ceb12df2',
