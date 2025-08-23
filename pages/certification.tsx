@@ -41,6 +41,14 @@ const glowStyle = `
     background: linear-gradient(135deg, #e0e7ff 60%, #cae2efff 100%);
     animation: glow 2s infinite alternate;
 }
+@media (max-width: 640px) {
+    .cert-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 8px 0 !important;
+        padding: 16px !important;
+    }
+}
 `;
 
 if (typeof window !== "undefined") {
@@ -56,7 +64,7 @@ const CertificationCard: React.FC<{
     cert: { name: string; issuer: string; year: string; logoKey: string };
 }> = ({ cert }) => (
     <div
-        className="cert-card flex flex-col items-center rounded-lg m-2 p-5 w-80 border border-blue-300"
+        className="cert-card flex flex-col items-center rounded-lg m-2 p-5 w-80 border border-blue-300 sm:w-80 w-full"
         style={{
             fontWeight: "bold",
         }}
@@ -225,14 +233,14 @@ const CertificationsPage: NextPage = () => {
 
     return (
         <Layout title="Certifications" description="Certifications - Portfolio">
-            <div className="flex flex-col items-center py-10">
-                <h1 className="font-body font-bold text-[48px] mb-6">Certifications</h1>
-                <div className="flex space-x-4 mb-8">
+            <div className="flex flex-col items-center py-10 px-2 sm:px-0">
+                <h1 className="font-body font-bold text-[2rem] sm:text-[48px] mb-6 text-center">Certifications</h1>
+                <div className="flex flex-wrap sm:flex-nowrap justify-center space-x-0 sm:space-x-4 space-y-2 sm:space-y-0 mb-8 w-full">
                     {categories.map((cat) => (
                         <button
                             key={cat.key}
                             onClick={() => setActiveTab(cat.key)}
-                            className={`px-6 py-2 rounded-full font-semibold transition ${
+                            className={`px-4 py-2 rounded-full font-semibold transition w-full sm:w-auto ${
                                 activeTab === cat.key
                                     ? "bg-blue-600 text-white shadow"
                                     : "bg-gray-200 text-gray-700 hover:bg-blue-100"
@@ -242,7 +250,7 @@ const CertificationsPage: NextPage = () => {
                         </button>
                     ))}
                 </div>
-                <div className="flex flex-wrap justify-center">
+                <div className="flex flex-wrap justify-center w-full">
                     {certifications[activeTab].map((cert, idx) => (
                         <CertificationCard cert={cert} key={idx} />
                     ))}
