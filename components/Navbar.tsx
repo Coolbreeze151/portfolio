@@ -16,7 +16,7 @@ export default function Navbar(): React.ReactElement {
     { name: 'Home', href: '/', icon: <HomeIcon className="w-6 h-6" /> },
     { name: 'Projects', href: '/projects', icon: <CollectionIcon className="w-6 h-6" /> },
     { name: 'Experiences', href: '/experiences', icon: <BriefcaseIcon className="w-6 h-6" /> },
-    { name: 'Contact', href: '/contact', icon: <MailIcon className="w-6 h-6" /> },
+    { name: 'Certifications', href: '/certification', icon: <MailIcon className="w-6 h-6" /> },
   ];
 
   const isActiveLink = (href: string, currentPathname: string): boolean => {
