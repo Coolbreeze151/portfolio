@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { userData } from "../constants/user";
 import { motion } from 'framer-motion';
 import { HomeIcon, BriefcaseIcon, CollectionIcon, MailIcon } from '@heroicons/react/outline';
+import { AcademicCapIcon } from '@heroicons/react/outline';
 
 export default function Navbar(): React.ReactElement {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function Navbar(): React.ReactElement {
     { name: 'Home', href: '/', icon: <HomeIcon className="w-6 h-6" /> },
     { name: 'Projects', href: '/projects', icon: <CollectionIcon className="w-6 h-6" /> },
     { name: 'Experiences', href: '/experiences', icon: <BriefcaseIcon className="w-6 h-6" /> },
-    { name: 'Certifications', href: '/certification', icon: <MailIcon className="w-6 h-6" /> },
+    { name: 'Certifications', href: '/certification', icon: <AcademicCapIcon className="w-6 h-6" /> },
   ];
 
   const isActiveLink = (href: string, currentPathname: string): boolean => {
