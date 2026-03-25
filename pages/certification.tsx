@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
 import Layout from "../components/Layout";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Logo URLs (replace with your own assets or use public URLs)
 const logos: Record<string, string> = {
     aws: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
     google: "https://avatars.githubusercontent.com/u/2810941?s=200&v=4",
@@ -12,214 +12,56 @@ const logos: Record<string, string> = {
     scrumorg: "https://cdn.worldvectorlogo.com/logos/scrumorg-1.svg",
     linux: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Linux_Foundation_Logo.svg/500px-Linux_Foundation_Logo.svg.png",
     neo4j: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Neo4j-logo_color.png",
-    udemy: "https://logos-world.net/wp-content/uploads/2021/11/Udemy-Logo.png",
-    coursera: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Coursera_logo_%282020%29.svg/2560px-Coursera_logo_%282020%29.svg.png",
-    nus: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/NUS_coat_of_arms.svg/130px-NUS_coat_of_arms.svg.png",
+    udemy: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/2560px-Udemy_logo.svg.png",
+    coursera: "/logos/coursera.svg",
+    nus: "/logos/nus.svg",
 };
 
-const categories = [
-    { key: "all", label: "All Categories" },
-    { key: "architect", label: "Solutions Architect" },
-    { key: "data", label: "Data Engineering" },
-    { key: "security", label: "Security" },
-    { key: "linux", label: "Linux Foundation" },
-    { key: "agile", label: "Agile & Leadership" },
-];
-
-// Add subtle glowing animation styles
-const glowStyle = `
-@keyframes glow {
-    0% { box-shadow: 0 0 6px 1px #bcedf1f8, 0 0 0px 0px #fff; }
-    50% { box-shadow: 0 0 12px 3px #eaebeefa, 0 0 6px 1px #fff; }
-    100% { box-shadow: 0 0 6px 1px #dce2e8eb, 0 0 0px 0px #fff; }
-}
-.cert-card {
-    background: #f2f8f8f4;
-    transition: background 0.3s, box-shadow 0.3s;
-}
-.cert-card:hover {
-    background: linear-gradient(135deg, #e0e7ff 60%, #cae2efff 100%);
-    animation: glow 2s infinite alternate;
-}
-@media (max-width: 640px) {
-    .cert-card {
-        width: 100% !important;
-        min-width: 0 !important;
-        margin: 8px 0 !important;
-        padding: 16px !important;
-    }
-}
-`;
-
-if (typeof window !== "undefined") {
-    if (!document.getElementById("cert-glow-style")) {
-        const style = document.createElement("style");
-        style.id = "cert-glow-style";
-        style.innerHTML = glowStyle;
-        document.head.appendChild(style);
-    }
-}
-
-const CertificationCard: React.FC<{
-    cert: { name: string; issuer: string; year: string; logoKey: string };
-}> = ({ cert }) => (
-    <div
-        className="cert-card flex flex-col items-center rounded-lg m-2 p-5 w-80 border border-blue-300 sm:w-80 w-full"
-        style={{
-            fontWeight: "bold",
-        }}
-    >
-        <div className="flex items-center justify-center mb-3" style={{ height: "72px" }}>
-            <img
-                src={logos[cert.logoKey] || ""}
-                alt={cert.issuer}
-                className="h-16 object-contain"
-                style={{ maxWidth: "90px" }}
-            />
-        </div>
-        <div className="font-bold text-base text-black text-center mb-1">{cert.name}</div>
-        <div className="text-xs text-black font-semibold text-center mb-1">{cert.issuer}</div>
-        <div className="text-xs text-gray-700 font-bold">{cert.year}</div>
-    </div>
-);
+const categoryMeta: Record<string, { label: string; color: string; accent: string }> = {
+    all:       { label: "All",               color: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200",        accent: "border-t-gray-400" },
+    architect: { label: "Solutions Architect", color: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300",    accent: "border-t-blue-500" },
+    data:      { label: "Data Engineering",    color: "bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300", accent: "border-t-purple-500" },
+    security:  { label: "Security",            color: "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300",        accent: "border-t-red-500" },
+    linux:     { label: "Linux Foundation",    color: "bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300", accent: "border-t-yellow-500" },
+    agile:     { label: "Agile & Leadership",  color: "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300", accent: "border-t-green-500" },
+};
 
 const certifications: Record<
     string,
-    { name: string; issuer: string; year: string; logoKey: string }[]
+    { name: string; issuer: string; year: string; logoKey: string; category: string }[]
 > = {
     architect: [
-        {
-            name: "AWS Certified Solutions Architect – Professional",
-            issuer: "Amazon Web Services",
-            year: "2025",
-            logoKey: "aws",
-        },
-        {
-            name: "Google Professional Cloud Architect",
-            issuer: "Google Cloud",
-            year: "2023",
-            logoKey: "google",
-        },
-        {
-            name: "Azure Solutions Architect Expert",
-            issuer: "Azure",
-            year: "2024",
-            logoKey: "azure",
-        },
-        {
-            name: "Google Associate Cloud Engineer",
-            issuer: "Google Cloud",
-            year: "2021",
-            logoKey: "google",
-        },
-        {
-            name: "AWS Certified Solutions Architect – Associate",
-            issuer: "Amazon Web Services",
-            year: "2020",
-            logoKey: "aws",
-        },
-        {
-            name: "Azure Administrator Associate",
-            issuer: "Azure",
-            year: "2022",
-            logoKey: "azure",
-        },
-        {
-            name: "Azure Fundamentals",
-            issuer: "Azure",
-            year: "2021",
-            logoKey: "azure",
-        },
-        {
-            name: "AWS Certified Developer – Associate",
-            issuer: "Amazon Web Services",
-            year: "2021",
-            logoKey: "aws",
-        },
-        {
-            name: "Certificate of Distinction in ICT Solutioning Knowledge Area",
-            issuer: "National University of Singapore",
-            year: "2019",
-            logoKey: "nus",
-        },
-        {
-            name: "Certificate of Distinction in Information Systems Management Knowledge Area",
-            issuer: "National University of Singapore",
-            year: "2019",
-            logoKey: "nus",
-        },
+        { name: "AWS Certified Solutions Architect – Professional", issuer: "Amazon Web Services", year: "2025", logoKey: "aws", category: "architect" },
+        { name: "Google Professional Cloud Architect",              issuer: "Google Cloud",         year: "2023", logoKey: "google", category: "architect" },
+        { name: "Azure Solutions Architect Expert",                 issuer: "Microsoft Azure",      year: "2024", logoKey: "azure", category: "architect" },
+        { name: "Google Associate Cloud Engineer",                  issuer: "Google Cloud",         year: "2021", logoKey: "google", category: "architect" },
+        { name: "AWS Certified Solutions Architect – Associate",    issuer: "Amazon Web Services",  year: "2020", logoKey: "aws", category: "architect" },
+        { name: "Azure Administrator Associate",                    issuer: "Microsoft Azure",      year: "2022", logoKey: "azure", category: "architect" },
+        { name: "Azure Fundamentals",                               issuer: "Microsoft Azure",      year: "2021", logoKey: "azure", category: "architect" },
+        { name: "AWS Certified Developer – Associate",              issuer: "Amazon Web Services",  year: "2021", logoKey: "aws", category: "architect" },
+        { name: "Certificate of Distinction – ICT Solutioning",    issuer: "National University of Singapore", year: "2019", logoKey: "nus", category: "architect" },
+        { name: "Certificate of Distinction – IS Management",      issuer: "National University of Singapore", year: "2019", logoKey: "nus", category: "architect" },
     ],
     data: [
-        {
-            name: "Neo4J Certified Professional",
-            issuer: "Neo4J",
-            year: "2024",
-            logoKey: "neo4j",
-        },
-        {
-            name: "AWS Certified Data Analytics – Specialty",
-            issuer: "Amazon Web Services",
-            year: "2022",
-            logoKey: "aws",
-        },
-        {
-            name: "Apache Spark with Scala - Hands on with Big Data",
-            issuer: "Udemy",
-            year: "2019",
-            logoKey: "udemy",
-        },
-            {
-            name: "Scala and Spark for Big Data and Machine Learning",
-            issuer: "Udemy",
-            year: "2019",
-            logoKey: "udemy",
-        },
+        { name: "Neo4J Certified Professional",                     issuer: "Neo4J",                year: "2024", logoKey: "neo4j", category: "data" },
+        { name: "AWS Certified Data Analytics – Specialty",         issuer: "Amazon Web Services",  year: "2022", logoKey: "aws", category: "data" },
+        { name: "Apache Spark with Scala – Big Data",               issuer: "Udemy",                year: "2019", logoKey: "udemy", category: "data" },
+        { name: "Scala and Spark for Big Data & Machine Learning",  issuer: "Udemy",                year: "2019", logoKey: "udemy", category: "data" },
     ],
     security: [
-        {
-            name: "Certified Information Systems Security Professional (CISSP)",
-            issuer: "ISC2",
-            year: "2024",
-            logoKey: "isc2",
-        }
+        { name: "Certified Information Systems Security Professional (CISSP)", issuer: "ISC2", year: "2024", logoKey: "isc2", category: "security" },
     ],
     linux: [
-        {
-            name: "KCNA: Kubernetes and Cloud Native Associate",
-            issuer: "ISC2",
-            year: "2022",
-            logoKey: "linux",
-        }
+        { name: "KCNA: Kubernetes and Cloud Native Associate",      issuer: "Linux Foundation",     year: "2022", logoKey: "linux", category: "linux" },
     ],
     agile: [
-        {
-            name: "Certified ScrumMaster (CSM)",
-            issuer: "Scrum Alliance",
-            year: "2020",
-            logoKey: "scrum",
-        },
-        {
-            name: "Certified Scrum Product Owner (CSPO)",
-            issuer: "Scrum Alliance",
-            year: "2022",
-            logoKey: "scrum",
-        },
-        {
-            name: "Professional Scrum Master™ I",
-            issuer: "Scrum.org",
-            year: "2021",
-            logoKey: "scrumorg",
-        },
-        {
-            name: "Leading People and Teams Specialization",
-            issuer: "Coursera",
-            year: "2021",
-            logoKey: "coursera",
-        },
+        { name: "Certified ScrumMaster (CSM)",                      issuer: "Scrum Alliance",       year: "2020", logoKey: "scrum", category: "agile" },
+        { name: "Certified Scrum Product Owner (CSPO)",             issuer: "Scrum Alliance",       year: "2022", logoKey: "scrum", category: "agile" },
+        { name: "Professional Scrum Master™ I",                     issuer: "Scrum.org",            year: "2021", logoKey: "scrumorg", category: "agile" },
+        { name: "Leading People and Teams Specialization",          issuer: "Coursera",             year: "2021", logoKey: "coursera", category: "agile" },
     ],
 };
 
-// Add "all" category by combining all certificates
 certifications.all = [
     ...certifications.architect,
     ...certifications.data,
@@ -228,33 +70,101 @@ certifications.all = [
     ...certifications.agile,
 ];
 
-const CertificationsPage: NextPage = () => {
-    const [activeTab, setActiveTab] = useState(categories[0].key); // "all" by default
+const totalCount = certifications.all.length;
+
+const CertificationCard: React.FC<{
+    cert: { name: string; issuer: string; year: string; logoKey: string; category: string };
+    index: number;
+}> = ({ cert, index }) => {
+    const accent = categoryMeta[cert.category]?.accent ?? "border-t-gray-400";
 
     return (
-        <Layout title="Certifications" description="Certifications - Portfolio">
-            <div className="flex flex-col items-center py-10 px-2 sm:px-0">
-                <h1 className="font-body font-bold text-[2rem] sm:text-[48px] mb-6 text-center">Certifications</h1>
-                <div className="flex flex-wrap sm:flex-nowrap justify-center space-x-0 sm:space-x-4 space-y-2 sm:space-y-0 mb-8 w-full">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat.key}
-                            onClick={() => setActiveTab(cat.key)}
-                            className={`px-4 py-2 rounded-full font-semibold transition w-full sm:w-auto ${
-                                activeTab === cat.key
-                                    ? "bg-blue-600 text-white shadow"
-                                    : "bg-gray-200 text-gray-700 hover:bg-blue-100"
-                            }`}
-                        >
-                            {cat.label}
-                        </button>
-                    ))}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, delay: index * 0.04 }}
+            className={`flex flex-col items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 border-t-4 ${accent} rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-full`}
+        >
+            <div className="flex items-center justify-center mb-4 h-16 w-full">
+                <img
+                    src={logos[cert.logoKey] || ""}
+                    alt={cert.issuer}
+                    className="max-h-14 max-w-[120px] object-contain"
+                    onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = "none";
+                    }}
+                />
+            </div>
+            <div className="flex-1 flex flex-col items-center text-center">
+                <p className="font-semibold text-sm text-gray-900 dark:text-gray-100 leading-snug mb-2">
+                    {cert.name}
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">{cert.issuer}</p>
+            </div>
+            <span className="mt-auto inline-block px-3 py-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full">
+                {cert.year}
+            </span>
+        </motion.div>
+    );
+};
+
+const CertificationsPage: NextPage = () => {
+    const [activeTab, setActiveTab] = useState("all");
+
+    return (
+        <Layout title="Certifications" description="Certifications – Ismahfaris Portfolio">
+            <div className="max-w-6xl mx-auto px-4 py-10">
+                {/* Page header */}
+                <div className="text-center mb-10">
+                    <h1 className="font-bold text-4xl md:text-5xl mb-3 text-gray-900 dark:text-white">
+                        Certifications
+                    </h1>
+                    <p className="text-gray-500 dark:text-gray-400 text-base">
+                        {totalCount} certifications across cloud, data, security, and leadership
+                    </p>
+                    <div className="mt-4 mx-auto w-16 h-1 rounded-full bg-green-500" />
                 </div>
-                <div className="flex flex-wrap justify-center w-full">
-                    {certifications[activeTab].map((cert, idx) => (
-                        <CertificationCard cert={cert} key={idx} />
-                    ))}
+
+                {/* Category filter */}
+                <div className="flex flex-wrap justify-center gap-2 mb-10">
+                    {Object.entries(categoryMeta).map(([key, meta]) => {
+                        const count = key === "all" ? totalCount : certifications[key]?.length ?? 0;
+                        const isActive = activeTab === key;
+                        return (
+                            <button
+                                key={key}
+                                onClick={() => setActiveTab(key)}
+                                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                                    isActive
+                                        ? "bg-green-500 text-white border-green-500 shadow-md scale-105"
+                                        : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-green-400 hover:text-green-600 dark:hover:text-green-400"
+                                }`}
+                            >
+                                {meta.label}
+                                <span className={`text-xs px-1.5 py-0.5 rounded-full font-bold ${isActive ? "bg-white/20 text-white" : "bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400"}`}>
+                                    {count}
+                                </span>
+                            </button>
+                        );
+                    })}
                 </div>
+
+                {/* Cert cards grid */}
+                <AnimatePresence exitBeforeEnter>
+                    <motion.div
+                        key={activeTab}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+                    >
+                        {certifications[activeTab].map((cert, idx) => (
+                            <CertificationCard cert={cert} index={idx} key={`${cert.name}-${idx}`} />
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </Layout>
     );

@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import { userData } from "../constants/user";
 import { NextPage } from "next";
 import Layout from "../components/Layout";
+import { motion } from "framer-motion";
 
 const title = `${userData.name}`;
 const subtitle = "Experiences";
@@ -11,17 +12,22 @@ interface ExpDetails {
     company: string;
     desc: string;
     year: string;
+    index: number;
 }
 
 const Experiences: NextPage = () => {
     return (
         <Layout title="Experiences" description={`${title} - ${subtitle}`}>
-            <div className="flex flex-col items-center overflow-hidden">
-                <div className="w-full md:w-2/3 lg:w-1/2 mx-auto text-center lg:p-20">
-                    <p className="font-body font-bold text-4xl md:text-5xl lg:text-6xl animate-fade-in">Experiences</p>
-                </div>
+            <div className="max-w-6xl mx-auto px-4 pt-10 pb-6 text-center">
+                <p className="text-sm font-semibold tracking-widest text-green-500 uppercase mb-2">Career Journey</p>
+                <h1 className="font-bold text-4xl md:text-5xl text-gray-900 dark:text-white mb-3">Experiences</h1>
+                <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto">
+                    My professional journey from intern to senior engineer.
+                </p>
+                <div className="mt-4 mx-auto w-16 h-1 rounded-full bg-green-500" />
             </div>
-            <div className="grid grid-cols-1 gap-4 max-w-xl mx-auto pt-5 mb-6">
+
+            <div className="max-w-2xl mx-auto px-4 pt-4 pb-16">
                 {userData.experience.map((exp, idx) => (
                     <React.Fragment key={idx}>
                         <ExperienceCard
@@ -29,13 +35,15 @@ const Experiences: NextPage = () => {
                             desc={exp.desc}
                             year={exp.year}
                             company={exp.company}
+                            index={idx}
                         />
-                        {idx === userData.experience.length - 1 ? null : (
-                            <div className="divider-container flex flex-col items-center -mt-1">
-                                <div className="w-4 h-4 bg-green-500 rounded-full relative z-10">
-                                    <div className="w-4 h-4 bg-green-500 rounded-full relative z-10 animate-ping"></div>
+                        {idx !== userData.experience.length - 1 && (
+                            <div className="flex flex-col items-center my-1">
+                                <div className="relative w-4 h-4">
+                                    <div className="absolute inset-0 bg-green-500 rounded-full" />
+                                    <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-60" />
                                 </div>
-                                <div className="w-1 h-16 bg-green-200 rounded-full -mt-1"></div>
+                                <div className="w-0.5 h-10 bg-gradient-to-b from-green-500 to-green-200 dark:to-green-900" />
                             </div>
                         )}
                     </React.Fragment>
@@ -45,19 +53,24 @@ const Experiences: NextPage = () => {
     );
 };
 
-const ExperienceCard = ({ title, desc, year, company }: ExpDetails): ReactElement => {
+const ExperienceCard = ({ title, desc, year, company, index }: ExpDetails): ReactElement => {
     return (
-        <div className="relative experience-card border p-6 rounded-lg shadow-xl bg-white dark:bg-gray-800 z-10 mx-4 border-green-500 transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-            <div className="flex justify-between items-center mb-4">
-                <h1 className="font-semibold text-2xl text-green-600">{title}</h1>
-                <span className="text-gray-500">{year}</span>
+        <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.05 }}
+            className="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 border-l-4 border-l-green-500 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+        >
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-3">
+                <h2 className="font-bold text-lg text-green-600 dark:text-green-400 leading-snug">{title}</h2>
+                <span className="inline-flex items-center px-2.5 py-1 text-xs font-semibold bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full whitespace-nowrap self-start">
+                    {year}
+                </span>
             </div>
-            <a className="text-lg text-gray-700 dark:text-gray-300 font-medium mb-2 block">
-                {company}
-            </a>
-            <p className="text-gray-600 dark:text-gray-400 my-2">{desc}</p>
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-green-400 to-blue-500 opacity-10 rounded-lg"></div>
-        </div>
+            <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{company}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{desc}</p>
+        </motion.div>
     );
 };
 

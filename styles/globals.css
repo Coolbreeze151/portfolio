@@ -8,15 +8,44 @@ body {
   margin: 0;
   font-family: 'Inter var', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
 }
 
+/* Smooth page transitions */
+* {
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #16a34a;
+}
+
+/* Selection color */
+::selection {
+  background: #22c55e;
+  color: #fff;
+}
+
+/* Cursor blink */
 .cursor::after {
   display: block;
   content: '';
   position: absolute;
   width: 4px;
   height: 100%;
-  background-color: rgb(21, 255, 0);
+  background-color: #22c55e;
   animation: cursor 0.4s linear infinite alternate;
   will-change: opacity;
 }
@@ -26,9 +55,14 @@ body {
   40% {
     opacity: 1;
   }
-
   60%,
   100% {
     opacity: 0;
   }
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
 }
