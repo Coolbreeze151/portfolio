@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="7" fill="#0f172a"/>
+  <!-- Subtle green border -->
+  <rect width="32" height="32" rx="7" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.35"/>
+  <!-- Serif I — top bar -->
+  <rect x="8" y="7" width="16" height="3.5" rx="1.75" fill="#22c55e"/>
+  <!-- Serif I — stem -->
+  <rect x="13.5" y="10.5" width="5" height="11" fill="#22c55e"/>
+  <!-- Serif I — bottom bar -->
+  <rect x="8" y="21.5" width="16" height="3.5" rx="1.75" fill="#22c55e"/>
+</svg>

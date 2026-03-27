@@ -17,6 +17,7 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Dancing+Script"
                         rel="stylesheet"
                     />
+                    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
                     <link rel="shortcut icon" href="/favicon.ico" />
                 </Head>
                 <body>
