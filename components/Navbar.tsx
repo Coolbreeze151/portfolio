@@ -119,7 +119,7 @@ export default function Navbar(): React.ReactElement {
         </div>
       </header>
       {/* Spacer */}
-      <div className="h-[68px] md:h-[76px]" />
+      <div className="h-20 md:h-[76px]" />
     </>
   );
 }
