@@ -74,9 +74,21 @@ export const userData = {
   experience: [
     {
       title: 'Data Engineer (II)',
+      company: 'GovTech, Anti-Scam Products (GASP)',
+      year: 'Nov 2025 - Present',
+      desc: 'Rejoined GovTech to build out data engineering capabilities and infrastructure within the Anti-Scam Products team, enabling data-driven detection and response to scam threats in Singapore for public good.',
+    },
+    {
+      title: 'Senior Manager, National AI Group',
+      company: 'Ministry of Digital Development and Information (MDDI)',
+      year: 'Apr 2025 - Nov 2025',
+      desc: 'Led staffing and policy efforts on AI governance at the national level, shaping Singapore\'s approach to responsible AI adoption and deployment across the public sector.',
+    },
+    {
+      title: 'Data Engineer (II)',
       company: 'GovTech, Data Engineering Practice',
-      year: '2024-Present',
-      desc: 'Currently involved in exploring new technologies, developing data engineering best practices and capabilities for Whole-Of-Government (WOG).',
+      year: '2024 - 2025',
+      desc: 'Explored emerging technologies and developed data engineering best practices and capabilities for Whole-Of-Government (WOG) use.',
     },
     {
       title: 'Data Engineer (I)',

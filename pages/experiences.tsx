@@ -22,7 +22,7 @@ const Experiences: NextPage = () => {
                 <p className="text-sm font-semibold tracking-widest text-green-500 uppercase mb-2">Career Journey</p>
                 <h1 className="font-bold text-4xl md:text-5xl text-gray-900 dark:text-white mb-3">Experiences</h1>
                 <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto">
-                    My professional journey from intern to senior engineer.
+                    My professional journey from intern to senior roles across government tech and policy.
                 </p>
                 <div className="mt-4 mx-auto w-16 h-1 rounded-full bg-green-500" />
             </div>
