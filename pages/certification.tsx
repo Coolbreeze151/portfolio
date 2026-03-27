@@ -86,11 +86,11 @@ const CertificationCard: React.FC<{
             transition={{ duration: 0.3, delay: index * 0.04 }}
             className={`flex flex-col items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 border-t-4 ${accent} rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-full`}
         >
-            <div className="flex items-center justify-center mb-4 h-16 w-full bg-white dark:bg-white/10 rounded-lg px-3 py-2">
+            <div className="flex items-center justify-center mb-4 h-14 w-full px-2">
                 <img
                     src={logos[cert.logoKey] || ""}
                     alt={cert.issuer}
-                    className="max-h-12 max-w-[110px] object-contain"
+                    className="max-h-12 max-w-[120px] object-contain"
                     onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
                     }}
